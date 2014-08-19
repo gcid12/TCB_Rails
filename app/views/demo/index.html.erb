@@ -1,2 +1,29 @@
 <h1>Demo#index</h1>
 <p>index</p>
+
+
+<a href="/demo/hello">Hello page 1</a> <br/>   <!-- The regular way -->
+
+<%=  link_to('Hello page 2', {:action => 'hello'}) %>    <!-- the Ruby way -->
+
+
+
+<!-- 
+/////CONTROLLER WITH PARAMS
+
+{ :controller =>  ‘demo’,
+	: action => ‘hello’ ,
+	: id = > 1,
+	: page => 3,
+	: name => ‘kevin’ } -->
+
+<hr/>
+
+<%=  link_to('Hello with parameters', {:action => 'hello', :page => 5, :id => 20}) %>    
+
+<!-- will generate:    /demo/hello/20?page=5 -->
+
+
+
+
+

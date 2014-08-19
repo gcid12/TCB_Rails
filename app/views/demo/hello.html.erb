@@ -1,2 +1,72 @@
 <h1>Demo#Hello</h1>
 <p>Hello yo</p>
+
+<%= 1+1 %>
+
+<% target = "world" %>
+<%= "Hello #{target}" %>
+
+<!-- This first example shows pure Ruby, and it works fine to output thing in the line code -->
+<% 3.times do 
+	puts "xxx"
+	
+end %>
+
+<hr/>
+
+<!-- The following is how you show the result in the browser -->
+
+<% 3.times do %>  <!-- this will re iterate 3 times -->
+	<%= "xxx" %>	
+<% end %>
+
+
+<hr/>
+<!-- Here we are using an INSTANCE VARIABLE defined at the controller-->
+
+<% @array.each do |n| %>  <!-- pipes that extract array value -->
+	<%= n %>	<br/>
+<% end %>  <!-- You cannot go back to controller from the view, it's only one way-->
+
+<hr/>
+
+<a href="/demo/index">Index</a> <br/> 
+<%=  link_to('Index page 2', {:action => 'index'}) %>
+
+
+<hr/>
+<!-- Now is time to retrieve the info coming from the URL (e.g.   /demo/hello/20?page=5 ) -->
+<!-- Note that I added something at the demo/hello controller -->
+
+ID: <%= params[:id] %> <br/>  <!-- This is reading from Controller -->
+ID: <%= @id %> <br/>  <!-- This is reading from URL -->
+Page: <%= @page %> <br/> 
+
+<!-- Parameters are always String, if you want to use them to do operatiosn convert them to INtegrers.
+You need to cast it, -->
+
+<!--  Lets say we want to summ 1 to the page number -->
+<!-- This would mark a mistake string + sum Not good-->
+
+Next Page: <%= @page.to_i + 1 %> <br/>  
+
+<!--  .to _ i   cast it to an integrer -->
+
+<!-- the best way to do it is in the controller not in the view. -->
+
+
+<hr/>
+
+<!-- The equivalent to print_r is:  params.inspect -->
+
+<%= params.inspect %>
+
+
+
+
+
+
+
+
+
+
